@@ -1,0 +1,6 @@
+MainPackage=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\ARM\Release\Upload\Wallpaper_1.5.136.0_ARM.appx
+SymbolPackage=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\ARM\Release\Upload\Wallpaper_1.5.136.0\Wallpaper_1.5.136.0_ARM.appxsym
+ResourcePack=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\ARM\Release\Upload\Wallpaper_1.5.136.0_scale-100.appx
+ResourcePack=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\ARM\Release\Upload\Wallpaper_1.5.136.0_scale-125.appx
+ResourcePack=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\ARM\Release\Upload\Wallpaper_1.5.136.0_scale-150.appx
+ResourcePack=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\ARM\Release\Upload\Wallpaper_1.5.136.0_scale-400.appx

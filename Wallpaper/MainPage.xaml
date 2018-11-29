@@ -1,0 +1,362 @@
+﻿<Page
+    x:Class="Wallpaper.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wallpaper"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Pivot HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+            <PivotItem Header="Modern">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="1">
+                        <GridView ItemsSource="{x:Bind ModernWallpaperBitmap}" IsItemClickEnabled="True" HorizontalAlignment="Center" ItemClick="ModernWallpaperBitmapSelect" Name="Thumnailcollectio" Grid.ColumnSpan="2" Margin="0,0,0,0">
+                            <GridView.ItemTemplate>
+                                <DataTemplate x:DataType="local:ModernWallpaperBitmaps" x:Name="DataTemplateFlatThumnails">
+                                    <Image Source="{x:Bind ModernWallpaperImageIcon}" Height="125" Width="125" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="ModernWallpaperThumnail"/>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <CommandBar Height="75" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <AppBarButton Label="Select first color" Width="150" HorizontalAlignment="Stretch" Content="Color" x:Name="SelectFlatWallpaperColorButton">
+                                <Button.Flyout>
+                                    <Flyout x:Name="ColorFlyout" Placement="Full" >
+                                        <Flyout.FlyoutPresenterStyle>
+                                            <Style TargetType="FlyoutPresenter">
+                                                <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                            </Style>
+                                        </Flyout.FlyoutPresenterStyle>
+                                        <StackPanel>
+                                            <GridView ItemsSource="{x:Bind ModernWallpaperColors}" IsItemClickEnabled= "True" Width="386" Margin="0" HorizontalAlignment="Center" ItemClick="FlatWallpaperColorSelect">
+                                                <GridView.ItemTemplate>
+                                                    <DataTemplate x:DataType="local:ModernWallpaperColorBook">
+                                                        <Rectangle Height="40" Width="40" Fill="{x:Bind ColorCode}" Margin="0" HorizontalAlignment="Center"/>
+                                                    </DataTemplate>
+                                                </GridView.ItemTemplate>
+                                            </GridView>
+                                            <StackPanel Margin=" 5">
+                                                <Button Click="DayAndNightSunGradientColor" Width="376" Height="40" Margin="3" Background="Transparent" HorizontalAlignment="Center" Padding="0" BorderThickness="0">
+                                                    <Image x:Name="ColorBackA" Width="376" Height="40"/>
+                                                </Button>
+                                                <Button Click="DayAndNightSunGradientColor2" Width="376" Height="40" Margin="3" Background="Transparent" HorizontalAlignment="Center" Padding="0" BorderThickness="0">
+                                                    <Image x:Name="ColorBackB" Width="376" Height="40"/>
+                                                </Button>
+                                                <Button Click="DayAndNightSunGradientColor3" Width="376" Height="40" Margin="3" Background="Transparent" HorizontalAlignment="Center" Padding="0" BorderThickness="0">
+                                                    <Image x:Name="ColorBackC" Width="376" Height="40"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </AppBarButton>
+                            <AppBarButton Label="Swap" Content="Swap" HorizontalAlignment="Center" Width="50" Icon="Remote" Click="SwapFlatColors" Background="Transparent"/>
+                            <AppBarButton Label="Select second color" Width="150" HorizontalAlignment="Stretch" Content="Accent" x:Name="SelectFlatWallpaperAcentButton">
+                                <Button.Flyout>
+                                    <Flyout x:Name="AccentFlyout" Placement="Full">
+                                        <Flyout.FlyoutPresenterStyle>
+                                            <Style TargetType="FlyoutPresenter">
+                                                <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                            </Style>
+                                        </Flyout.FlyoutPresenterStyle>
+                                        <StackPanel>
+                                            <GridView ItemsSource="{x:Bind ModernWallpaperColors}" IsItemClickEnabled= "True" Width="386" Margin="0" HorizontalAlignment="Center" ItemClick="FlatWallpaperAcentSelect">
+                                                <GridView.ItemTemplate>
+                                                    <DataTemplate x:DataType="local:ModernWallpaperColorBook">
+                                                        <Rectangle Height="40" Width="40" Fill="{x:Bind ColorCode}" Margin="0" HorizontalAlignment="Center"/>
+                                                    </DataTemplate>
+                                                </GridView.ItemTemplate>
+                                            </GridView>
+                                            <StackPanel>
+                                                <Button Click="DayAndNightSunGradientAccent" Width="376" Height="40" Margin="3" Background="Transparent" HorizontalAlignment="Center" Padding="0" BorderThickness="0">
+                                                    <Image x:Name="AccentBackA" Width="376" Height="40"/>
+                                                </Button>
+                                                <Button Click="DayAndNightSunGradientAccent2" Width="376" Height="40" Margin="3" Background="Transparent" HorizontalAlignment="Center" Padding="0" BorderThickness="0">
+                                                    <Image x:Name="AccentBackB" Width="376" Height="40"/>
+                                                </Button>
+                                                <Button Click="DayAndNightSunGradientAccent3" Width="376" Height="40" Margin="3" Background="Transparent" HorizontalAlignment="Center" Padding="0" BorderThickness="0">
+                                                    <Image x:Name="AccentBackC" Width="376" Height="40"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </AppBarButton>
+                            <AppBarToggleButton Label="To Desktop" Icon="ViewAll" Content="to Desktop" x:Name="FlatWallpaperDesktop" Tapped="FlatwallpapertoDesktop"/>
+                            <AppBarToggleButton Label="To Locksc." Icon="Stop" Content="to Lockscreen" x:Name="FlatWallpaperLockscreen" Tapped="FlatwallpapertoLockscreen"/>
+                        </CommandBar>
+                    </Grid>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Dynamic">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="270"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button Content="!" Background="Transparent" Width="32">
+                            <Button.Flyout>
+                                <Flyout>
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style TargetType="FlyoutPresenter">
+                                            <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                        </Style>
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <StackPanel>
+                                        <TextBlock x:Name="TextGroupFirst" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="TextGroupSecond" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="TextGroupThird" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="TextGroupFourth" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="TextGroupFifth" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <TextBlock x:Name="DynamicThemeNameTitle" Margin="10,5,0,5" TextWrapping="WrapWholeWords" Width="300" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Button Grid.Row="1" Click="LoadDynamicThemeCollection" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+                        <Image x:Name="LoadedThemeImage" Height="350" Width="350" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill"></Image>
+                        <Button.Flyout>
+                            <Flyout Placement="Full">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="FlyoutPresenter">
+                                        <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Here you will find your Dynamic Thames:" TextWrapping="WrapWholeWords" Width="400"/>
+                                    </StackPanel>
+                                    <GridView Height="Auto" Width="400">
+                                        <StackPanel>
+                                            <GridView ItemsSource="{x:Bind DynamicWallpapers}" IsItemClickEnabled= "True" ItemClick="DynamicThemeSelect">
+                                                <GridView.ItemTemplate>
+                                                    <DataTemplate x:DataType="local:DynamicWallpaper">
+                                                        <StackPanel Margin="10">
+                                                            <Image Stretch="Fill" Height="150" Width="150" Source="{x:Bind DynamicIconImgSource}"/>
+                                                            <TextBlock Text="{x:Bind DynamicThemeName}" HorizontalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </GridView.ItemTemplate>
+                                            </GridView>
+                                        </StackPanel>
+                                    </GridView>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Delete Theme" Background="Transparent">
+                                            <Button.Flyout>
+                                                <Flyout x:Name="FlyoutDynamicDelete">
+                                                    <Flyout.FlyoutPresenterStyle>
+                                                        <Style TargetType="FlyoutPresenter">
+                                                            <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                                        </Style>
+                                                    </Flyout.FlyoutPresenterStyle>
+                                                    <StackPanel>
+                                                        <TextBlock Text="This Action will result in permanently removing this Theme from your local Collection. Are you sure about this?" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                                        <Button Background="Transparent" Click="DeleteTheme_Click" Content="Yes, remove this Theme" HorizontalAlignment="Center" x:Name="ThemeDeleteCommandBar"/>
+                                                    </StackPanel>
+                                                </Flyout>
+                                            </Button.Flyout>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                    <Grid Grid.Row="2">
+                        <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <AppBarButton Icon="Add" Label="Add Theme" Click="FilePickerWallpaperDynamic" x:Name="AddDTButton"/>
+                            <AppBarButton Icon="Refresh" Label="Refresh" Click="RefreshMainPage"/>
+                            <AppBarToggleButton Icon="Clock" Label="Night Mode" x:Name="NightModeEnabled" Click="NightMode_Toggled"/>
+                            <AppBarButton Icon="Delete" Label="Unload Theme" Click="UnloadDynamicTheme">
+                            </AppBarButton>
+                        </CommandBar>
+                    </Grid>
+                    <StackPanel Grid.Row="4" Width="450" Margin="10">
+                        <TextBlock TextWrapping="WrapWholeWords" Margin="10,10,10,0" Text="Apply Wallpapers to Desktop:" Width="400"/>
+                        <ToggleSwitch x:Name="ApplyToDesktop" Toggled="ApplyToDesktop_Toggled" Margin="30,5,5,5" Width="300"></ToggleSwitch>
+                        <TextBlock TextWrapping="WrapWholeWords" Margin="0,10,10,0" Text="Apply Wallpapers to Lockscreen:" Width="400"/>
+                        <ToggleSwitch x:Name="ApplyToLockscreen" Toggled="ApplyToLockscreen_Toggled" Margin="30,5,5,5" Width="300"></ToggleSwitch>
+                        <HyperlinkButton Content="Get Mac OS Mojave theme" NavigateUri="https://github.com/moutasem1989/Active-Wallpaper-Susbended-Development/blob/master/Mojave_Wallpaper.udt" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                        <HyperlinkButton Content="Create a Dynamic Wallpaper Theme" Click="CreateDynamicThemeLocal_Click" Margin="5,0,0,0"/>
+                        <HyperlinkButton Content="Archive all Dynamic Themes as UDT files" Click="ArchiveDynamicThemeLocal_Click" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Weather">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="250"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button Content="!" Background="Transparent" Width="32" Height="32">
+                            <Button.Flyout>
+                                <Flyout>
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style TargetType="FlyoutPresenter">
+                                            <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                        </Style>
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <StackPanel>
+                                        <TextBlock x:Name="WeatherTextGroupFirst" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="WeatherTextGroupSecond" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="WeatherTextGroupThird" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="WeatherTextGroupFourth" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                        <TextBlock x:Name="WeatherTextGroupFifth" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <TextBlock x:Name="DynamicWeatherNameTitle" Margin="10,5,0,5" TextWrapping="WrapWholeWords" Width="300" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Button Grid.Row="1" Click="LoadDynamicWeatherCollection" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                        <Image x:Name="LoadedWeatherImage" Height="350" Width="350" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill"></Image>
+                        <Button.Flyout>
+                            <Flyout Placement="Full">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="FlyoutPresenter">
+                                        <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Here you will find your Dynamic Thames:" TextWrapping="WrapWholeWords" Width="400"/>
+                                    </StackPanel>
+                                    <GridView Height="Auto" Width="400">
+                                        <StackPanel>
+                                            <GridView ItemsSource="{x:Bind DynamicWeathers}" IsItemClickEnabled="True" ItemClick="WeatherThemeSelect">
+                                                <GridView.ItemTemplate>
+                                                    <DataTemplate x:DataType="local:DynamicWeather">
+                                                        <StackPanel Margin="10">
+                                                            <Image Stretch="Fill" Height="150" Width="150" Source="{x:Bind DynamicIconImgSource}"/>
+                                                            <TextBlock Text="{x:Bind DynamicThemeName}" HorizontalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </GridView.ItemTemplate>
+                                            </GridView>
+                                        </StackPanel>
+                                    </GridView>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Delete Theme" Background="Transparent">
+                                            <Button.Flyout>
+                                                <Flyout x:Name="FlyoutDeleteWeather">
+                                                    <Flyout.FlyoutPresenterStyle>
+                                                        <Style TargetType="FlyoutPresenter">
+                                                            <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                                        </Style>
+                                                    </Flyout.FlyoutPresenterStyle>
+                                                    <StackPanel>
+                                                        <TextBlock Text="This Action will result in permanently removing this Theme from your local Collection. Are you sure about this?" Margin="0,5,0,5" TextWrapping="WrapWholeWords" Width="300"/>
+                                                        <Button Background="Transparent" Click="DeleteThemeWeather_Click" Content="Yes, remove this Theme" HorizontalAlignment="Center"/>
+                                                    </StackPanel>
+                                                </Flyout>
+                                            </Button.Flyout>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                    <CommandBar Grid.Row="2" Background="Transparent" IsOpen="False" DefaultLabelPosition="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
+                        <AppBarButton Icon="Add" Label="Add Theme" Click="FilePickerWeatherDynamic"/>
+                        <AppBarButton Icon="Refresh" Label="Refresh" Click="RefreshMainPage"/>
+                        <AppBarButton Icon="Delete" Label="Unload Theme" Click="UnloadDynamicWeather">
+
+                        </AppBarButton>
+                    </CommandBar>
+                    <StackPanel Grid.Row="4" Width="450" Margin="10">
+                        <TextBlock TextWrapping="WrapWholeWords" Margin="10,10,10,0" Text="Apply Wallpapers to Desktop:" Width="400"/>
+                        <ToggleSwitch x:Name="ApplyWeatherToDesktop" Toggled="ApplyWeatherToDesktop_Toggled" Margin="30,5,5,5" Width="300"></ToggleSwitch>
+                        <TextBlock TextWrapping="WrapWholeWords" Margin="0,10,10,0" Text="Apply Wallpapers to Lockscreen:" Width="400"/>
+                        <ToggleSwitch x:Name="ApplyWeatherToLockscreen" Toggled="ApplyWeatherToLockscreen_Toggled" Margin="30,5,5,5" Width="300"></ToggleSwitch>
+                        <HyperlinkButton Content="Create a Dynamic Weather Theme" Click="CreateDynamicWeatherLocal_Click" Margin="5,0,0,0"/>
+                        <HyperlinkButton Content="Archive all Weather Themes as UDW files" Click="ArchiveDynamicWeatherLocal_Click" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Settings">
+                <GridView>
+                    <StackPanel Margin="10" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Button Content="Show us some Love" Click="launchURI" Margin="10" Width="300"></Button>
+                        <TextBlock TextWrapping="WrapWholeWords" Margin="10,10,10,0" Text="Automatic wallpaper changing features in this app require running a background process. By enabling any of the features in the Wallpaper page, the Background task is automatically registered." Width="300"/>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Slider TickPlacement="Outside" Header="BackgroundTask refresh-rate in minutes:" Margin="10,5,5,5" VerticalAlignment="Center" Width="240" Minimum="20" TickFrequency="10" StepFrequency="10" Maximum="240" x:Name="BackgroundTaskSlider"/>
+                            <Button Margin="5,35,0,0" Content="Apply" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="BackgroundTaskApplyButton" Click="BackgroundTaskApplyClick"/>
+                        </StackPanel>
+                        <TextBlock TextWrapping="WrapWholeWords" Margin="0,10,10,0" Text="Enable Geo-Location:" Width="300"/>
+                        <TextBlock TextWrapping="WrapWholeWords" Margin="0,0,10,0" Text="Using the Dynamic Wallpaper feature requires determining the current location of the used Device. the Location accuracy is limited to 5,000 meters and all data collected are used only locally. No Data is collected or shared through this app." Width="300"/>
+                        <ToggleSwitch x:Name="useUserPosition" Toggled="UserPosition_Toggled" Margin="5" Width="300"></ToggleSwitch>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="The App Tile Icon made by Freepik at Flaticon. It is licensed with Creative Commons BY 3.0" Margin="5,0,0,0" TextWrapping="WrapWholeWords"  Width="300"/>
+                        <HyperlinkButton Content="freepik home page" NavigateUri="https://www.flaticon.com/authors/freepik" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                        <HyperlinkButton Content="Creative Commons BY 3.0" NavigateUri="http://creativecommons.org/licenses/by/3.0/" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                        <TextBlock Text="This App is a tool that applies pictures as Wallpapers to Desktop and Lockscreen on Windows 10 Devices. Developers do not claim the ownership of any of the Photos used in Themes or collections in this app." TextWrapping="WrapWholeWords"  Width="300" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                        <TextBlock Text="For Questions, Feedbacks, Features Requests and WikiHow, Please visit our GitHub Repository." Margin="5" TextWrapping="WrapWholeWords"  Width="300"/>
+                        <HyperlinkButton Content="On GitHub" NavigateUri="https://github.com/moutasem1989/Active-Wallpaper-Susbended-Development" HorizontalAlignment="Left"/>
+                        <TextBlock Text="In Medern Wallpaper:" TextWrapping="WrapWholeWords"  Width="300"/>
+                        <HyperlinkButton Content="Minimalism_Landscape" NavigateUri="http://hdqwalls.com/minimalism-landscape-wallpaper" HorizontalAlignment="Left"/>
+                        <HyperlinkButton Content="landscape by prod, Report Image" NavigateUri="https://wallpapershome.com/download-wallpapers/iphone/landscape-flat-4k-5k-fog-iphone-wallpaper-forest-blue-11927.html" HorizontalAlignment="Left"/>
+                        <HyperlinkButton Content="Geometric landscape" NavigateUri="https://wallpaperscraft.com/download/minimalism_geometric_landscape_124072/3840x2400" HorizontalAlignment="Left"/>
+                        <HyperlinkButton Content="Material Wallpaper" NavigateUri="http://www.modafinilsale.com/4k-material-wallpaper.html" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    
+                    <StackPanel>
+                        <TextBlock Text="Unfortunately, the development of this app has been temporarily suspended. Due to my full schedule, It is hard for my to keep up with the development of this app although i still have many ideas for it still. one major bug in this app has to do with the Unsplash wallpaper feature that keep causing crashes. If you are a developer and you want to help, consider visiting the GitHub page and help with the debuging." TextWrapping="WrapWholeWords" Width="300"/>
+                        <TextBlock Text="Thank you for your trust!" TextWrapping="WrapWholeWords" Width="300"/>
+                        <Button Content="Dependencies" Margin="0,10,0,10" Background="Transparent">
+                            <Button.Flyout>
+                                <Flyout>
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style TargetType="FlyoutPresenter">
+                                            <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" />
+                                        </Style>
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <StackPanel >
+                                        <TextBlock Text="Dependencies in this app:" TextWrapping="WrapWholeWords"/>
+                                        <HyperlinkButton Content="Angle by Daniel M. Porrey" NavigateUri="https://github.com/porrey/Solar-Calculator/blob/master/LICENSE" HorizontalAlignment="Left"/>
+                                        <HyperlinkButton Content="Microsoft.NETCore.UniversalWindowsPlatform" NavigateUri="https://github.com/dotnet/core-setup/blob/master/LICENSE.TXT" HorizontalAlignment="Left"/>
+                                        <HyperlinkButton Content="Microsoft.Toolkit.Uwp.Notifications" NavigateUri="https://github.com/Microsoft/WindowsCommunityToolkit/blob/master/license.md" HorizontalAlignment="Left"/>
+                                        <HyperlinkButton Content="Microsoft.Toolkit.Uwp.UI" NavigateUri="https://github.com/Microsoft/WindowsCommunityToolkit/blob/master/license.md" HorizontalAlignment="Left"/>
+                                        <HyperlinkButton Content="NETStandard.Library" NavigateUri="https://github.com/dotnet/standard/blob/master/LICENSE.TXT" HorizontalAlignment="Left"/>
+                                        <HyperlinkButton Content="Newtonsoft.Json" NavigateUri="https://raw.githubusercontent.com/JamesNK/Newtonsoft.Json/master/LICENSE.md" HorizontalAlignment="Left"/>
+                                        <HyperlinkButton Content="SolarCalculator" NavigateUri="https://raw.githubusercontent.com/porrey/Solar-Calculator/master/LICENSE" HorizontalAlignment="Left"/>
+                                        <HyperlinkButton Content="WeatherNet.uwp" NavigateUri="https://github.com/TopperDEL/weather-net" HorizontalAlignment="Left"/>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <TextBlock VerticalAlignment="Top" Text="Paper Icon made by:" TextWrapping="WrapWholeWords"  Width="300"/>
+                        <HyperlinkButton Content="Smashicons" NavigateUri="https://www.flaticon.com/authors/smashicons" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Dynamic Weather Placeholder Icon made by:"  TextWrapping="WrapWholeWords"  Width="300"/>
+                        <HyperlinkButton Content="Good Ware" NavigateUri="https://www.flaticon.com/authors/good-ware" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </GridView>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+
+</Page>

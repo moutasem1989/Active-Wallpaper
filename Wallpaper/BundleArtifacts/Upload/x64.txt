@@ -1,0 +1,2 @@
+MainPackage=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\x64\Release\Upload\Wallpaper_1.5.136.0_x64.appx
+SymbolPackage=D:\Active-Wallpaper-Susbended-Development\Wallpaper\bin\x64\Release\Upload\Wallpaper_1.5.136.0\Wallpaper_1.5.136.0_x64.appxsym

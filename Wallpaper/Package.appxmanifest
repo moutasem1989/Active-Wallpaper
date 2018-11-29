@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
+  <Identity Name="39765ZenobiaI.T.ActiveWallpaper" Publisher="CN=BB5BBC30-1C6A-46CE-B4F5-4F12A2EDA8FC" Version="1.5.136.0" />
+  <mp:PhoneIdentity PhoneProductId="57bbe742-73b3-44bc-9670-78ddb470d398" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Active Wallpaper</DisplayName>
+    <PublisherDisplayName>Nineveh</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Wallpaper.App">
+      <uap:VisualElements DisplayName="Wallpapers" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Wallpaper" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask.BackgroundTaskClass">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="location" />
+            <Task Type="deviceUse" />
+          </BackgroundTasks>
+        </Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name=".udt">
+            <uap:DisplayName>UDT</uap:DisplayName>
+            <uap:Logo>icon unsplash.png</uap:Logo>
+            <uap:InfoTip>Universal Dynamic Wallpaper Theme</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.udt</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name=".udw">
+            <uap:DisplayName>UDW</uap:DisplayName>
+            <uap:Logo>icon unsplash.png</uap:Logo>
+            <uap:InfoTip>Universal Dynamic Weather Theme</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.udw</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="removableStorage" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>
